@@ -54,7 +54,7 @@ Copy the generated Webhook URL (e.g., `https://xxxx.ngrok.app/callback`) and con
 ## Built with this Template (Examples)
 
 Check out what you can build using this template:
-- 🥘 **[How Many Cals (Kin Ni Uan Mai Na?)](https://github.com/welltilln/howmanycals)**: An AI-powered LINE bot that analyzes food images, extracts exact calorie counts, reads meal components, and tracks daily calorie intake using Gemini's native session memory.
+- 🥘 **[How Many Cals](https://github.com/welltilln/howmanycals)**: An AI-powered LINE bot that analyzes food images, extracts exact calorie counts, reads meal components, and tracks daily calorie intake using Gemini's native session memory.
 
 ### Production Deployment (Docker)
 
