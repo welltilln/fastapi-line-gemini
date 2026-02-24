@@ -10,6 +10,27 @@ Built with FastAPI, this template features a **"Zero-Friction" setup**—it auto
 
 ---
 
+## 🏗️ Architecture Flow
+
+```mermaid
+sequenceDiagram
+    participant User as LINE User
+    participant LINE as LINE Platform
+    participant Ngrok as Ngrok Tunnel
+    participant App as FastAPI Server
+    participant Gemini as Google Gemini API
+
+    User->>LINE: Sends Text/Image
+    LINE->>Ngrok: Webhook POST Request
+    Ngrok->>App: Forwards Request (Port 8000)
+    App->>Gemini: Sends Content + System Prompt
+    Gemini-->>App: AI Response
+    App-->>LINE: Reply Message POST
+    LINE-->>User: Bot Replies
+```
+
+---
+
 ## ✨ Key Features
 - **🚀 1-Click Launch**: `run.sh` / `run.bat` automatically creates an isolated virtual environment, installs packages, and launches both your backend and Ngrok tunnel!
 - **🧠 Native AI Memory**: Employs Gemini's `chat_session` to remember conversational context for intelligent bot interactions.
@@ -46,6 +67,19 @@ Before starting, make sure you have the following ready:
 > Wait for the terminal to print your magical Webhook URL (e.g., `https://xxxx.ngrok.app/callback`).
 
 5. Paste that Webhook URL into your **LINE Developers Console** and hit **Verify**.
+
+---
+
+## 🐳 Enterprise Deployment (Docker)
+
+For 24/7 production use, it is highly recommended to run this project securely on a cloud VPS (e.g., AWS, DigitalOcean) via Docker without ngrok.
+
+1. Install [Docker](https://docs.docker.com/get-docker/) & [Docker Compose](https://docs.docker.com/compose/).
+2. Run the following command in the terminal:
+   ```bash
+   docker-compose up -d --build
+   ```
+3. The server will run in the background. Stop it anytime with `docker-compose down`.
 
 ---
 
