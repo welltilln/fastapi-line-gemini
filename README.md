@@ -1,16 +1,13 @@
-# 🤖 FastAPI-LINE-Gemini Connector (Zero-Friction Template)
+# FastAPI-LINE-Gemini Connector
 
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.100+-green.svg)](https://fastapi.tiangolo.com)
 [![Gemini API](https://img.shields.io/badge/Gemini-2.5_Flash-orange.svg)](https://ai.google.dev/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-A **plug-and-play boilerplate** to connect Google's Gemini AI directly to your LINE Official Account. 
-Built with FastAPI, this template features a **"Zero-Friction" setup**—it automatically launches a local server and an Ngrok tunnel in a single click, perfectly suited for rapid prototyping, assignments, or portfolio building!
+A lightweight boilerplate repository for integrating Google's Gemini API with the LINE Messaging API. Built on FastAPI, this project provides a streamlined setup process, including an automated local Ngrok tunnel for rapid prototyping.
 
----
-
-## 🏗️ Architecture Flow
+## Architecture
 
 ```mermaid
 sequenceDiagram
@@ -29,73 +26,46 @@ sequenceDiagram
     LINE-->>User: Bot Replies
 ```
 
----
+## Features
+- **Zero-Configuration Launch**: Execution scripts (`run.sh` / `run.bat`) automatically manage virtual environments, dependencies, and local tunneling (Ngrok).
+- **Session Memory**: Utilizes Gemini's chat sessions (`chat_session`) to maintain conversation context.
+- **Multimodal Support**: Built-in handling for both text messages and image parsing.
+- **Docker Support**: Includes a `Dockerfile` and `docker-compose.yml` for isolated production deployments.
 
-## ✨ Key Features
-- **🚀 1-Click Launch**: `run.sh` / `run.bat` automatically creates an isolated virtual environment, installs packages, and launches both your backend and Ngrok tunnel!
-- **🧠 Native AI Memory**: Employs Gemini's `chat_session` to remember conversational context for intelligent bot interactions.
-- **📸 Vision Support**: Ready out-of-the-box to process and analyze images sent from LINE.
-- **🎭 Customizable Persona**: Want a sassy assistant or a professional tutor? Just edit the `system_prompt` in one file!
+## Prerequisites
+1. Python 3.9 or higher.
+2. [LINE Messaging API Credentials](https://developers.line.biz/console/): `Channel Secret` and `Channel Access Token`.
+3. [Google Gemini API Key](https://aistudio.google.com/).
+4. [Ngrok Auth Token](https://dashboard.ngrok.com/): Required for local development.
 
----
+## Setup Instructions
 
-## 🛠️ Prerequisites
-Before starting, make sure you have the following ready:
-1. **[Python 3.9+](https://www.python.org/downloads/)** installed on your machine.
-2. **LINE Messaging API Keys** ([LINE Developers Console](https://developers.line.biz/console/)): You need the `Channel Secret` and `Channel Access Token`.
-3. **Google Gemini API Key** ([Google AI Studio](https://aistudio.google.com/)).
-4. **Ngrok Auth Token** ([Ngrok Dashboard](https://dashboard.ngrok.com/)): Required for the tunnel to bypass your router and expose the bot to LINE.
+### Local Development
 
----
+1. Clone the repository.
+2. Rename `.env.example` to `.env` and assign your API credentials.
+3. Execute the startup script appropriate for your operating system:
+   - **MacOS / Linux:** `./run.sh`
+   - **Windows:** `run.bat`
 
-## ⚡ Quick Start (The Magic Way)
+The script will launch the FastAPI server and expose it via Ngrok. 
+Copy the generated Webhook URL (e.g., `https://xxxx.ngrok.app/callback`) and configure it in your LINE Developers Console.
 
-1. **Clone or Download** this repository to your computer.
-2. Rename `.env.example` to `.env`.
-3. Open `.env` and fill in your API keys:
-   ```env
-   GEMINI_API_KEY=your_gemini_api_key_here
-   LINE_CHANNEL_SECRET=your_line_channel_secret_here
-   LINE_CHANNEL_ACCESS_TOKEN=your_line_channel_access_token_here
-   NGROK_AUTHTOKEN=your_ngrok_authtoken_here
-   ```
-4. Double-click or run the setup script for your OS:
-   - **MacOS / Linux:** Run `./run.sh` in your terminal.
-   - **Windows:** Double-click `run.bat`.
+### Production Deployment (Docker)
 
-> **That's it!** The script handles all the tedious `pip install` and `venv` stuff.
-> Wait for the terminal to print your magical Webhook URL (e.g., `https://xxxx.ngrok.app/callback`).
+For stable, long-term hosting on a traditional VPS without Ngrok, utilize the provided Docker configuration.
 
-5. Paste that Webhook URL into your **LINE Developers Console** and hit **Verify**.
-
----
-
-## 🐳 Enterprise Deployment (Docker)
-
-For 24/7 production use, it is highly recommended to run this project securely on a cloud VPS (e.g., AWS, DigitalOcean) via Docker without ngrok.
-
-1. Install [Docker](https://docs.docker.com/get-docker/) & [Docker Compose](https://docs.docker.com/compose/).
-2. Run the following command in the terminal:
+1. Ensure [Docker](https://docs.docker.com/get-docker/) & [Docker Compose](https://docs.docker.com/compose/) are installed.
+2. Build and run the container in detached mode:
    ```bash
    docker-compose up -d --build
    ```
-3. The server will run in the background. Stop it anytime with `docker-compose down`.
 
----
+## Customization
 
-## ⚙️ How to Customize Your Bot
+- **AI Persona**: Modify the `system_prompt` variable within `gemini.py` to adjust the model's behavior and personality.
+- **Bot Logic**: Custom routing or pre-processing logic can be added to the `handle_callback()` function in `main.py`.
 
-This template is designed to be easily modified without fighting the boilerplate:
+## License
 
-- **Change Bot Personality:**
-  Open `gemini.py` and modify the `system_prompt` string. Give it rules, a persona, or specific output formats.
-
-- **Change Bot Behavior (Advanced):**
-  Open `main.py` and scroll down to `handle_callback()`. Here you can add custom logic for specific text commands before sending them to Gemini.
-
----
-
-## 🤝 Contribution & Forking
-Feel free to fork this repository and build your own awesome LINE bots! If you create something cool, don't hesitate to share. 
-
-*Built with ❤️ for rapid prototyping.*
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
