@@ -51,6 +51,11 @@ sequenceDiagram
 The script will launch the FastAPI server and expose it via Ngrok. 
 Copy the generated Webhook URL (e.g., `https://xxxx.ngrok.app/callback`) and configure it in your LINE Developers Console.
 
+## Built with this Template (Examples)
+
+Check out what you can build using this template:
+- 🥘 **[How Many Cals (Kin Ni Uan Mai Na?)](https://github.com/welltilln/howmanycals)**: An AI-powered LINE bot that analyzes food images, extracts exact calorie counts, reads meal components, and tracks daily calorie intake using Gemini's native session memory.
+
 ### Production Deployment (Docker)
 
 For stable, long-term hosting on a traditional VPS without Ngrok, utilize the provided Docker configuration.
