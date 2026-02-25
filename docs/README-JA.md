@@ -8,7 +8,7 @@
 Google Gemini API と LINE Messaging API をシームレスに統合するための、軽量かつ強力なボイラープレート（ひな形）プロジェクトです。FastAPI 上に構築されており、自動NgrokプロキシのセットアップからSQLiteのデータ永続化まで、複雑な設定を完全に排除した開発環境を提供します。
 
 <p align="center">
-    <a href="README.md">English</a>
+    <a href="../README.md">English</a>
     <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
     <a href="README-TH.md">ภาษาไทย</a>
     <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
@@ -131,4 +131,4 @@ A: 無料枠の Ngrok を使用している場合、セッションの有効期�
 A: 画像のパース処理において、LINEから送信された画像が極端に巨大（数MB以上）、または接続やGemini側の画像処理レスポンスが遅延（タイムアウト）している可能性があります。
 
 ## ライセンス
-このプロジェクトのドキュメントとコードは MIT ライセンスです。詳細については、[LICENSE](LICENSE) ファイルをご参照ください。
+このプロジェクトのドキュメントとコードは MIT ライセンスです。詳細については、[LICENSE](../LICENSE) ファイルをご参照ください。

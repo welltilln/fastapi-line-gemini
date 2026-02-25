@@ -8,7 +8,7 @@
 Google Gemini AI 모델을 LINE Messaging API와 통합하기 위해 최적화된 경량 보일러플레이트(초기 템플릿) 프로젝트입니다. 최신 FastAPI를 기반으로 설계되어 번거로운 로컬 환경 설정을 없애고 구성이 자동화된 완벽한 개발 경험을 제공합니다.
 
 <p align="center">
-    <a href="README.md">English</a>
+    <a href="../README.md">English</a>
     <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
     <a href="README-TH.md">ภาษาไทย</a>
     <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
@@ -130,4 +130,4 @@ A: Ngrok의 무료 버전은 세션 연동의 유효 시간이 최대 2시간으
 A: 용량이 지나치게 큰 원본 파일이거나 동영상 포맷, 또는 인터넷 업로드/다운로드 지연에 따른 타임아웃 오류 현상일 수 있습니다.
 
 ## 라이선스
-MIT 라이선스를 따르며 누구나 영리적 목적으로 자유롭게 배포하고 수정할 수 있습니다. 자세한 내용은 [LICENSE](LICENSE) 파일을 참조하십시오.
+MIT 라이선스를 따르며 누구나 영리적 목적으로 자유롭게 배포하고 수정할 수 있습니다. 자세한 내용은 [LICENSE](../LICENSE) 파일을 참조하십시오.

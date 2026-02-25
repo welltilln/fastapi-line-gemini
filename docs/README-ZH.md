@@ -8,7 +8,7 @@
 一个轻量化、拥有极速开发体验的模板代码库，致力于将 **Google 的 Gemini AI** 无缝整合进 **LINE Messaging API** 中。它基于 FastAPI 构建，不仅简化了极其繁琐的配置挂载流程，内部更是集成了自动化 Ngrok 内网穿透脚本，让您能在分秒间完成原型设计开发。
 
 <p align="center">
-    <a href="README.md">English</a>
+    <a href="../README.md">English</a>
     <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
     <a href="README-TH.md">ภาษาไทย</a>
     <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
@@ -133,4 +133,4 @@ A: 全体起立关注这里！如果您使用的是 Ngrok 【免费无充值档�
 A: 只要您更新了 `requirements.txt`。请务必停止老容器，接着带上长参数 `docker-compose up -d --build` 进行深度重新编译即可。
 
 ## 开源协议许可
-所有代码基于自由化程度顶尖的 MIT License 证书开源，全文档及解释权详见 [LICENSE](LICENSE) 证书。
+所有代码基于自由化程度顶尖的 MIT License 证书开源，全文档及解释权详见 [LICENSE](../LICENSE) 证书。
