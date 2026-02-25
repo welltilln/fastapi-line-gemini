@@ -69,7 +69,7 @@ Copy the generated Webhook URL (e.g., `https://xxxx.ngrok.app/callback`) and con
 ## Built with this Template (Examples)
 
 Check out what you can build using this template:
-- 🥘 **[How Many Cals](https://github.com/welltilln/howmanycals)**: An AI-powered LINE bot that analyzes food images, extracts exact calorie counts, reads meal components, and tracks daily calorie intake using Gemini's native session memory.
+- **[How Many Cals](https://github.com/welltilln/howmanycals)**: An AI-powered LINE bot that analyzes food images, extracts exact calorie counts, reads meal components, and tracks daily calorie intake using Gemini's native session memory.
 
 ### Production Deployment (Docker)
 
@@ -86,7 +86,7 @@ For stable, long-term hosting on a traditional VPS without Ngrok, utilize the pr
 - **AI Persona**: Modify the `system_prompt` variable within `gemini.py` to adjust the model's behavior and personality.
 - **Bot Logic**: Custom routing or pre-processing logic can be added to the `handle_callback()` function in `main.py`.
 
-### ⬆️ Upgrading the AI Model (Future-Proofing)
+### Upgrading the AI Model (Future-Proofing)
 If a newer, smarter Gemini model is released in the future (e.g., Gemini 3.0), you don't need to rewrite the project! Simply open `app/gemini.py` and change the `model_name` string to the new version:
 ```python
 model = genai.GenerativeModel(

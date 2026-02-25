@@ -21,7 +21,7 @@
 
 ---
 
-## 🏗️ 架构数据流图 (Architecture)
+## 架构数据流图 (Architecture)
 
 ```mermaid
 sequenceDiagram
@@ -45,7 +45,7 @@ sequenceDiagram
 
 ---
 
-## ✨ 核心特性矩阵 (Features)
+## 核心特性矩阵 (Features)
 - **绝对持久的上下文记忆 (SQLite):** 我们抛弃了那种“重启就全忘光”的低级操作！聊天上下文（`chat_session` 记录）会针对每个用户自动存储在工程环境下的 `sessions.db` 里。就算服务器断电崩溃，重新启动后 AI 依然能接着上一句回复您！
 - **零配置，点开即用 (Zero-Config Launch):** 适配各类主流操组系统（Mac/Linux 用 `run.sh`，Windows 用 `run.bat`），它们全自动拉取依赖环境兵启动 Ngrok 会话通道，无需查资料敲命令。
 - **天然集成的多模态 (Multimodal):** 代码原生支持提取并转发用户发送的图像 Blob 数据送予极快的 Gemini Vision 层剖析。
@@ -53,7 +53,7 @@ sequenceDiagram
 
 ---
 
-## 🛠️ 安装配置指南 (Setup Instructions)
+## 安装配置指南 (Setup Instructions)
 
 ### 前置物料
 1. 系统必需内置包含 Python 3.9 以上版本。
@@ -83,18 +83,18 @@ docker-compose up -d --build
 
 ---
 
-## 🚀 以此模板拓展的最佳实践专案
+## 以此模板拓展的最佳实践专案
 
-- 🥘 **[How Many Cals (查卡路里机器人)](https://github.com/welltilln/howmanycals)**: 一个拥有视觉分析能力、可精准切分食材、自动随子午线重置卡路里数据库的 LINE 机器人。由这个模板轻松发散重构而来！
+- **[How Many Cals (查卡路里机器人)](https://github.com/welltilln/howmanycals)**: 一个拥有视觉分析能力、可精准切分食材、自动随子午线重置卡路里数据库的 LINE 机器人。由这个模板轻松发散重构而来！
 
 ---
 
-## 🎨 快速定义您的专属智能体 (Customization)
+## 快速定义您的专属智能体 (Customization)
 
 - **修改 AI 语言与人设 (Language & Persona):**
 为了包容全球开发者，系统底层的提示词默认配置为 **纯英文**。如果您希望将机器人转化为纯正的中文助手，请立刻打开 `app/gemini.py` 内部提供的 `system_prompt`。将里面的英文提示词删光，并用中文重新赋予它灵魂。
 
-**🇨🇳 切换为中文语言样例（标准中文助手）：**
+**切换为中文语言样例（标准中文助手）：**
 ```python
 system_prompt = """
 你是一位聪明、友好的 AI 智能助手。
@@ -103,7 +103,7 @@ system_prompt = """
 """
 ```
 
-**🔥 定制特殊人设样例（粗暴的翻译机器）：**
+**定制特殊人设样例（粗暴的翻译机器）：**
 ```python
 system_prompt = """
 你是一位顶尖的语言学翻译专家。
@@ -113,7 +113,7 @@ system_prompt = """
 """
 ```
 
-### ⬆️ 升级大语言模型 (Future-Proofing)
+### 升级大语言模型 (Future-Proofing)
 如果在未来发布了更强大的模型（比如 Gemini 3.0），您完全不需要重写代码！只需打开 `app/gemini.py`，并将 `model_name` 字段更改为最新的模型名称即可：
 ```python
 model = genai.GenerativeModel(
@@ -124,7 +124,7 @@ model = genai.GenerativeModel(
 
 ---
 
-## ❓ 常见疑难解答 (FAQ)
+## 常见疑难解答 (FAQ)
 
 **Q: 为什么离开电脑去喝杯咖啡回来，我的 LINE 机器人就不回复我了？**
 A: 全体起立关注这里！如果您使用的是 Ngrok 【免费无充值档】，官方设定只要挂机空闲长达 2 个小时没有请求连接就会强制杀掉会话，直接导致您的 Webhook 失效！关闭终端，重跑一次 `run.sh` 即可重获新生。

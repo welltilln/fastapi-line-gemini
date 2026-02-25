@@ -21,7 +21,7 @@ Google Gemini API と LINE Messaging API をシームレスに統合するため
 
 ---
 
-## 🏗️ アーキテクチャデータフロー (Architecture)
+## アーキテクチャデータフロー (Architecture)
 
 ```mermaid
 sequenceDiagram
@@ -45,7 +45,7 @@ sequenceDiagram
 
 ---
 
-## ✨ コア機能 (Features)
+## コア機能 (Features)
 - **永続的セッションメモリ (Persistent Memory):** 各ユーザーの会話の文脈（チャット履歴）は、RAM上ではなく自動的に `sessions.db`（SQLite）へ保存されます。サーバーが再起動やクラッシュに遭遇しても、会話のコンテキストが失われることは絶対にありません。
 - **ゼロコンフィグ起動:** 環境構築に悩む時代は終わりました。同梱の実行スクリプト（Mac/Linux用 `run.sh` または Windows用 `run.bat`）を叩くだけで、依存関係の取得からNgrokトンネルの接続まで、全てがワンクリックで完了します。
 - **マルチモーダル完全対応:** テキストメッセージはもちろん、ユーザーが送信した画像も適切にパースし、Geminiの広範なビジョン認識APIに引き渡します。
@@ -53,7 +53,7 @@ sequenceDiagram
 
 ---
 
-## 🛠️ セットアップガイド (Setup Instructions)
+## セットアップガイド (Setup Instructions)
 
 ### 必要なもの
 1. Python バージョン 3.9 以上
@@ -83,18 +83,18 @@ docker-compose up -d --build
 
 ---
 
-## 🚀 利用例・応用作品
+## 利用例・応用作品
 
-- 🥘 **[How Many Cals (AI 栄養士ボット)](https://github.com/welltilln/howmanycals)**: ダイエットの強力な味方。食事の画像から完璧な成分とカロリーを計算し、一日の摂取量を追跡するためにこのテンプレートを利用しています。
+- **[How Many Cals (AI 栄養士ボット)](https://github.com/welltilln/howmanycals)**: ダイエットの強力な味方。食事の画像から完璧な成分とカロリーを計算し、一日の摂取量を追跡するためにこのテンプレートを利用しています。
 
 ---
 
-## 🎨 ボットのカスタマイズ (Customization)
+## ボットのカスタマイズ (Customization)
 
 - **AIの言語とパーソナリティ (Language & Persona):**
 グローバルな利用を想定しているため、システムのベースプロンプトは **英語** に設定されています。ボットに日本語で対応させたい場合は、`app/gemini.py` 内の `system_prompt` を開き、英語の指示を全て削除して、以下のように日本語の指示を書き換えてください。
 
-**🇯🇵 日本語への言語切り替え例（標準のアシスタント）：**
+**日本語への言語切り替え例（標準のアシスタント）：**
 ```python
 system_prompt = """
 あなたは非常に賢く、親切なAIアシスタントです。
@@ -103,7 +103,7 @@ system_prompt = """
 """
 ```
 
-**🔥 特殊カスタマイズ例（関西弁を話す陽気なAIアシスタント）:**
+**特殊カスタマイズ例（関西弁を話す陽気なAIアシスタント）:**
 ```python
 system_prompt = """
 あなたは関西弁を流暢に話す、陽気でフレンドリーなAIアシスタントです。
@@ -111,7 +111,7 @@ system_prompt = """
 """
 ```
 
-### ⬆️ AI モデルのアップグレード (Future-Proofing)
+### AI モデルのアップグレード (Future-Proofing)
 将来、より高度な Gemini モデル（Gemini 3.0 など）がリリースされた場合でも、プロジェクト全体を書き直す必要はありません。`app/gemini.py` を開き、`model_name` の文字列を新しいモデル名に変更するだけです：
 ```python
 model = genai.GenerativeModel(
@@ -122,7 +122,7 @@ model = genai.GenerativeModel(
 
 ---
 
-## ❓ よくある質問 (FAQ)
+## よくある質問 (FAQ)
 
 **Q: 2時間ほど放置したら、急にLINEでボットが反応しなくなりました。**
 A: 無料枠の Ngrok を使用している場合、セッションの有効期限は最大2時間に制限されています。ターミナルで `run.sh` などを再実行してURLを更新するか、永続的な利用のためにVPS・Docker運用への切り替えを検討してください。

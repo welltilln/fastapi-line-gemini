@@ -21,7 +21,7 @@ Google Gemini AI 모델을 LINE Messaging API와 통합하기 위해 최적화�
 
 ---
 
-## 🏗️ 아키텍처 다이어그램 (Architecture)
+## 아키텍처 다이어그램 (Architecture)
 
 ```mermaid
 sequenceDiagram
@@ -45,7 +45,7 @@ sequenceDiagram
 
 ---
 
-## ✨ 핵심 기능 및 이점 (Features)
+## 핵심 기능 및 이점 (Features)
 - **영구적인 세션 메모리 보존 (SQLite):** 더 이상 변수에 저장했다 날아가는 봇은 없습니다. 사용자의 모든 대화형 컨텍스트 이력(`chat_session`)이 로컬의 `sessions.db` 파일에 기록됩니다. 코딩 중 서버를 수없이 재시작하더라도 기존 대화 내용은 완벽하게 유지됩니다.
 - **클릭 한 번으로 구동 (Zero-Config Launch):** 포함된 실행 스크립트(Mac/Linux용 `run.sh` 혹은 Windows용 `run.bat`) 단 하나면 종속성 라이브러리 설치부터 임시 로컬 서버 터널링(Ngrok)까지 전자동으로 해결됩니다.
 - **멀티모달 네이티브 지원 (Multimodal):** LINE에서 보내는 텍스트와 사진(이미지 콘텐츠)을 매끄럽게 추출하여 곧바로 Gemini AI의 Vision 통찰력에 전달하도록 세팅되어 있습니다.
@@ -53,7 +53,7 @@ sequenceDiagram
 
 ---
 
-## 🛠️ 설치 및 설정 가이드 (Setup)
+## 설치 및 설정 가이드 (Setup)
 
 ### 필수 요구사항
 1. Python 버전 3.9 이상.
@@ -82,18 +82,18 @@ docker-compose up -d --build
 
 ---
 
-## 🚀 파생형 프로젝트 모범 사례
+## 파생형 프로젝트 모범 사례
 
-- 🥘 **[How Many Cals (AI 영양사 일기)](https://github.com/welltilln/howmanycals)**: 이 템플릿의 장점을 극대화하여 음식 사진에서 정확한 칼로리를 집계하고, 매일 섭취량을 누적 분석하다 밤 12시가 되면 리셋하는 다이어트용 AI LINE 봇 개발 예제입니다.
+- **[How Many Cals (AI 영양사 일기)](https://github.com/welltilln/howmanycals)**: 이 템플릿의 장점을 극대화하여 음식 사진에서 정확한 칼로리를 집계하고, 매일 섭취량을 누적 분석하다 밤 12시가 되면 리셋하는 다이어트용 AI LINE 봇 개발 예제입니다.
 
 ---
 
-## 🎨 나만의 AI 챗봇 만들기 (Customization)
+## 나만의 AI 챗봇 만들기 (Customization)
 
 - **AI 언어 및 성격 개조 (Language & Persona):**
 전 세계 개발자를 지원하기 위해 기본 시스템 프롬프트는 **영어**로 설정되어 있습니다. 봇이 한국어로 응답하게 하려면 `app/gemini.py` 스크립트 안에 있는 `system_prompt` 내용 중 영어를 지우고, 다음과 같이 한국어 컨셉으로 교체합니다.
 
-**🇰🇷 한국어 언어 전환 예시 (표준 AI 비서):**
+**한국어 언어 전환 예시 (표준 AI 비서):**
 ```python
 system_prompt = """
 당신은 매우 똑똑하고 친절한 AI 비서입니다.
@@ -102,7 +102,7 @@ system_prompt = """
 """
 ```
 
-**🔥 프롬프트 수정 예명 (단호박 맞춤법 교정기):**
+**프롬프트 수정 예명 (단호박 맞춤법 교정기):**
 ```python
 system_prompt = """
 당신은 완벽을 추구하는 국어국문학 교수이자 혹독한 맞춤법 검사기입니다.
@@ -110,7 +110,7 @@ system_prompt = """
 """
 ```
 
-### ⬆️ AI 모델 업그레이드 (Future-Proofing)
+### AI 모델 업그레이드 (Future-Proofing)
 향후 더 똑똑한 Gemini 모델(예: Gemini 3.0)이 출시되더라도 프로젝트를 다시 작성할 필요가 없습니다! `app/gemini.py` 파일을 열고 `model_name` 문자열을 새 버전 이름으로 변경하기만 하면 됩니다.
 ```python
 model = genai.GenerativeModel(
@@ -121,7 +121,7 @@ model = genai.GenerativeModel(
 
 ---
 
-## ❓ 자주 묻는 질문 (FAQ)
+## 자주 묻는 질문 (FAQ)
 
 **Q: Ngrok으로 잘 되다가 2~3시간 뒤에 봇이 뻗어버리고 대답을 안 합니다.**
 A: Ngrok의 무료 버전은 세션 연동의 유효 시간이 최대 2시간으로 고정되어 있습니다. 개발이 길어지는 경우 터미널을 취소하고 다시 `run.sh` 스크립트를 재실행하여 주소를 연장해주시면 됩니다. (실배포시엔 Docker를 추천합니다.)
