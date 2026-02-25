@@ -111,6 +111,15 @@ system_prompt = """
 """
 ```
 
+### ⬆️ AI モデルのアップグレード (Future-Proofing)
+将来、より高度な Gemini モデル（Gemini 3.0 など）がリリースされた場合でも、プロジェクト全体を書き直す必要はありません。`app/gemini.py` を開き、`model_name` の文字列を新しいモデル名に変更するだけです：
+```python
+model = genai.GenerativeModel(
+  model_name="gemini-3.0-pro", # <-- この行を更新
+  ...
+)
+```
+
 ---
 
 ## ❓ よくある質問 (FAQ)
