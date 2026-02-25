@@ -15,20 +15,23 @@ sequenceDiagram
     participant LINE as LINE Platform
     participant Ngrok as Ngrok Tunnel
     participant App as FastAPI Server
+    participant DB as SQLite DB
     participant Gemini as Google Gemini API
 
     User->>LINE: Sends Text/Image
     LINE->>Ngrok: Webhook POST Request
     Ngrok->>App: Forwards Request (Port 8000)
-    App->>Gemini: Sends Content + System Prompt
+    App->>DB: Fetch User Chat History
+    App->>Gemini: Sends Content + History + System Prompt
     Gemini-->>App: AI Response
+    App->>DB: Save Updated Chat History
     App-->>LINE: Reply Message POST
     LINE-->>User: Bot Replies
 ```
 
 ## Features
+- **Persistent Session Memory (SQLite)**: Automatically saves and restores Gemini chat histories (`chat_session`) per user in a local `sessions.db`. Server restarts will *not* wipe conversational context.
 - **Zero-Configuration Launch**: Execution scripts (`run.sh` / `run.bat`) automatically manage virtual environments, dependencies, and local tunneling (Ngrok).
-- **Session Memory**: Utilizes Gemini's chat sessions (`chat_session`) to maintain conversation context.
 - **Multimodal Support**: Built-in handling for both text messages and image parsing.
 - **Docker Support**: Includes a `Dockerfile` and `docker-compose.yml` for isolated production deployments.
 

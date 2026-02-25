@@ -21,7 +21,8 @@ from linebot.v3.exceptions import InvalidSignatureError
 from linebot.v3.webhooks import MessageEvent, TextMessageContent, ImageMessageContent
 
 # Make sure to implement your gemini logic in gemini.py
-from gemini import model
+from gemini import model, extract_history_to_list
+import database
 
 # get channel_secret and channel_access_token from your environment variable
 channel_secret = os.getenv('LINE_CHANNEL_SECRET', None)
@@ -38,9 +39,6 @@ async_api_client = AsyncApiClient(configuration)
 line_bot_api = AsyncMessagingApi(async_api_client)
 parser = WebhookParser(channel_secret)
 
-# In-memory dictionary to store chat sessions
-user_sessions = {}
-
 @app.post("/callback")
 async def handle_callback(request: Request):
     signature = request.headers['X-Line-Signature']
@@ -56,12 +54,10 @@ async def handle_callback(request: Request):
         if not isinstance(event, MessageEvent):
             continue
        
-        # Start or get user session
+        # Restore user session from SQLite
         user_id = event.source.user_id
-        if user_id not in user_sessions:
-            user_sessions[user_id] = model.start_chat()
-        
-        chat = user_sessions[user_id]
+        history = database.get_session_history(user_id)
+        chat = model.start_chat(history=history)
 
         # Show loading animation
         await line_bot_api.show_loading_animation(
@@ -95,6 +91,13 @@ async def handle_callback(request: Request):
                     messages=[TextMessage(text=response.text)]
                 )
             )
+
+        # Save updated history to SQLite
+        try:
+            updated_history = extract_history_to_list(chat)
+            database.save_session_history(user_id, updated_history)
+        except Exception as e:
+            print(f"Failed to save history: {e}")
 
     return 'OK'
 

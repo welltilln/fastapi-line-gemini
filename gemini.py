@@ -38,3 +38,13 @@ model = genai.GenerativeModel(
         HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT: HarmBlockThreshold.BLOCK_NONE,
         },
 )
+
+def extract_history_to_list(chat) -> list:
+    """Extracts text-only history from a Gemini ChatSession to a local list for JSON serialization.
+    Skips image blobs to save database space."""
+    history = []
+    for message in chat.history:
+        text_parts = [part.text for part in message.parts if hasattr(part, 'text') and part.text]
+        if text_parts:
+            history.append({"role": message.role, "parts": text_parts})
+    return history
