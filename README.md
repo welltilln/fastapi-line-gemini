@@ -7,6 +7,18 @@
 
 A lightweight boilerplate repository for integrating Google's Gemini API with the LINE Messaging API. Built on FastAPI, this project provides a streamlined setup process, including an automated local Ngrok tunnel for rapid prototyping.
 
+<p align="center">
+    <a href="README.md">English</a>
+    <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
+    <a href="README-TH.md">ภาษาไทย</a>
+    <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
+    <a href="README-ZH.md">简体中文</a>
+    <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
+    <a href="README-JA.md">日本語</a>
+    <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
+    <a href="README-KO.md">한국어</a>
+</p>
+
 ## Architecture
 
 ```mermaid

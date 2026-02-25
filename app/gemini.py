@@ -7,8 +7,8 @@ load_dotenv()
 
 # 1. Provide your core system prompt/persona here
 system_prompt = """
-You are a helpful AI assistant connected via LINE bot.
-Please respond concisely and kindly in Thai.
+You are a helpful and highly intelligent AI assistant connected via a LINE bot.
+Please respond concisely and informatively.
 """
 
 generation_config = {

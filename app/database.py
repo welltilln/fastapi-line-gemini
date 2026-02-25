@@ -2,7 +2,7 @@ import sqlite3
 import json
 import os
 
-DB_PATH = os.path.join(os.path.dirname(__file__), "sessions.db")
+DB_PATH = os.path.join(os.path.dirname(__file__), "..", "sessions.db")
 
 def init_db():
     """Initialize the SQLite database and create the sessions table if it doesn't exist."""

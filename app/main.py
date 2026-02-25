@@ -21,8 +21,8 @@ from linebot.v3.exceptions import InvalidSignatureError
 from linebot.v3.webhooks import MessageEvent, TextMessageContent, ImageMessageContent
 
 # Make sure to implement your gemini logic in gemini.py
-from gemini import model, extract_history_to_list
-import database
+from app.gemini import model, extract_history_to_list
+import app.database as database
 
 # get channel_secret and channel_access_token from your environment variable
 channel_secret = os.getenv('LINE_CHANNEL_SECRET', None)
