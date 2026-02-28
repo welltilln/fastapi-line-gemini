@@ -8,15 +8,11 @@
 A lightweight boilerplate repository for integrating Google's Gemini API with the LINE Messaging API. Built on FastAPI, this project provides a streamlined setup process, including an automated local Ngrok tunnel for rapid prototyping.
 
 <p align="center">
-    <a href="README.md">English</a>
-    <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
-    <a href="docs/README-TH.md"></a>
-    <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
-    <a href="docs/README-ZH.md"></a>
-    <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
-    <a href="docs/README-JA.md"></a>
-    <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
-    <a href="docs/README-KO.md"></a>
+    <a href="README.md"><img src="https://img.shields.io/badge/Language-English-blue?style=for-the-badge" alt="English"></a>
+    <a href="docs/README-TH.md"><img src="https://img.shields.io/badge/Language-%E0%B8%A0%E0%B8%B2%E0%B8%A9%E0%B8%B2%E0%B9%84%E0%B8%97%E0%B8%A2-green?style=for-the-badge" alt="Thai"></a>
+    <a href="docs/README-ZH.md"><img src="https://img.shields.io/badge/Language-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-yellow?style=for-the-badge" alt="Chinese"></a>
+    <a href="docs/README-JA.md"><img src="https://img.shields.io/badge/Language-%E6%97%A5%E6%9C%AC%E8%AA%9E-red?style=for-the-badge" alt="Japanese"></a>
+    <a href="docs/README-KO.md"><img src="https://img.shields.io/badge/Language-%ED%95%9C%EA%B5%AD%EC%96%B4-lightgrey?style=for-the-badge" alt="Korean"></a>
 </p>
 
 ## Architecture
