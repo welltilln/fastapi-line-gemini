@@ -1,38 +1,24 @@
 #!/bin/bash
 
-echo "========================================="
-echo "🤖 Gemini-LINE Connector Setup"
-echo "========================================="
-
-# Check if Python 3 is installed
-if ! command -v python3 &> /dev/null
-then
-    echo "❌ Error: python3 is not installed. Please install Python 3 first."
-    exit 1
-fi
-
-# Check if .env exists
-if [ ! -f .env ]; then
-    echo "⚠️ .env file not found! Copying from .env.example..."
-    cp .env.example .env
-    echo "👉 Please open the .env file and add your GEMINI and LINE API keys, then run this script again."
-    exit 1
-fi
-
-# Create virtual environment if it doesn't exist
-if [ ! -d "venv" ]; then
-    echo "📦 Creating virtual environment..."
-    python3 -m venv venv
-fi
+# Clear port 8000 if it's already in use to prevent collision
+lsof -ti:8000 | xargs kill -9 &>/dev/null || true
 
 # Activate virtual environment
-echo "🔄 Activating virtual environment..."
-source venv/bin/activate
+if [ -d "venv" ]; then
+    source venv/bin/activate
+else
+    echo "❌ Error: venv not found. Please setup first."
+    exit 1
+fi
 
-# Install dependencies
-echo "📥 Installing requirements (this might take a moment)..."
-pip install -r requirements.txt --quiet
+# Run the app with maximum silence and OCD-friendly output
+# Suppressing all Python and Google-specific deprecation warnings
+export PYTHONWARNINGS="ignore"
+export GRPC_VERBOSITY="NONE"
 
-# Run the app
-echo "🚀 Starting FastAPI server with hot-reload..."
+echo "============================================================"
+echo "🚀 YOSAFE SILENT INPUT ENGINE (Modern Hub)"
+echo "============================================================"
+
+# Using the local venv python which is now 3.10.19
 python -m app.main

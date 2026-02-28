@@ -10,4 +10,7 @@ services:
       - .env
     volumes:
       - ./sessions.db:/app/sessions.db
+      - ../Yosafe:/app/yosafe
+    environment:
+      - YOSAFE_PATH=/app/yosafe
     restart: unless-stopped
