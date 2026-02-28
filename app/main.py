@@ -18,7 +18,7 @@ async def lifespan(app: FastAPI):
     # Startup logic
     try:
         yosafe_db.initialize_db()
-        print("📁 Yosafe database initialized.")
+        print(" Yosafe database initialized.")
         
         # Start Silent Mail Sniffer in background
         sniffer_task = asyncio.create_task(monitor_email())
@@ -30,7 +30,7 @@ async def lifespan(app: FastAPI):
         except asyncio.CancelledError:
             pass
     except Exception as e:
-        print(f"⚠️ Error during startup: {e}")
+        print(f" Error during startup: {e}")
         yield
 
 app = FastAPI(lifespan=lifespan)
@@ -48,8 +48,8 @@ if __name__ == "__main__":
     
     port = 8000
     print("\n" + "="*60)
-    print("🚀 YOSAFE SILENT INPUT ENGINE STARTED!")
-    print(f"🕵️ Monitoring emails and updating {yosafe_db.DB_PATH}")
+    print(" YOSAFE SILENT INPUT ENGINE STARTED!")
+    print(f" Monitoring emails and updating {yosafe_db.DB_PATH}")
     print("="*60 + "\n")
     
     uvicorn.run(app, host="127.0.0.1", port=port, log_level="warning")

@@ -19,8 +19,8 @@ Extract the following information from the text or image provided:
 Return the result in JSON format ONLY. 
 If the message is not a bank transaction, return {"error": "not_bank_msg"}.
 
-Example Text: "กสิกรไทย: เงินเข้า 500.00บ. จาก นาย ก. ยอดเงินคงเหลือ 1,200.00บ."
-Output: {"bank": "kbank", "type": "income", "amount": 500.0, "balance": 1200.0, "description": "เงินเข้าจาก นาย ก."}
+Example Text: ":  500.00.   .  1,200.00."
+Output: {"bank": "kbank", "type": "income", "amount": 500.0, "balance": 1200.0, "description": "  ."}
 """
 
 def parse_bank_message(text: str = None, image: bytes = None) -> Optional[Dict]:

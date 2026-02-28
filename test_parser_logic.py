@@ -3,11 +3,11 @@ from app.bank_parser import parse_bank_message
 test_cases = [
     {
         "name": "KBank Text Notification",
-        "text": "กสิกรไทย: เงินเข้า 500.00บ. จาก นาย ก. ยอดเงินคงเหลือ 1,200.00บ."
+        "text": ":  500.00.   .  1,200.00."
     },
     {
         "name": "SCB Notification",
-        "text": "SCB: ท่านได้ทำรายการโอนเงินจำนวน 150.00 บาท ไปยัง นาย ข. เมื่อวันที่ 28/02/2569 ยอดเงินคงเหลือในบัญชีคือ 850.50 บาท"
+        "text": "SCB:  150.00    .  28/02/2569  850.50 "
     }
 ]
 

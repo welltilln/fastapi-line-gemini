@@ -7,7 +7,7 @@ lsof -ti:8000 | xargs kill -9 &>/dev/null || true
 if [ -d "venv" ]; then
     source venv/bin/activate
 else
-    echo "❌ Error: venv not found. Please setup first."
+    echo " Error: venv not found. Please setup first."
     exit 1
 fi
 
@@ -17,7 +17,7 @@ export PYTHONWARNINGS="ignore"
 export GRPC_VERBOSITY="NONE"
 
 echo "============================================================"
-echo "🚀 YOSAFE SILENT INPUT ENGINE (Modern Hub)"
+echo " YOSAFE SILENT INPUT ENGINE (Modern Hub)"
 echo "============================================================"
 
 # Using the local venv python which is now 3.10.19
