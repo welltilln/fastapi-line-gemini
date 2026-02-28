@@ -48,3 +48,4 @@ def parse_bank_message(text: str = None, image: bytes = None) -> Optional[Dict]:
     except Exception as e:
         print(f"Parsing error: {e}")
         return None
+ 

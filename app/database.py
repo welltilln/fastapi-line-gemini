@@ -48,3 +48,4 @@ def save_session_history(user_id: str, history: list):
 
 # Initialize the db when module is imported
 init_db()
+ 

@@ -48,3 +48,4 @@ def extract_history_to_list(chat) -> list:
         if text_parts:
             history.append({"role": message.role, "parts": text_parts})
     return history
+ 
