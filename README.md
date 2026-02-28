@@ -9,14 +9,14 @@ A lightweight boilerplate repository for integrating Google's Gemini API with th
 
 <p align="center">
     <a href="README.md">English</a>
-    <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
-    <a href="docs/README-TH.md">ภาษาไทย</a>
-    <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
-    <a href="docs/README-ZH.md">简体中文</a>
-    <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
-    <a href="docs/README-JA.md">日本語</a>
-    <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
-    <a href="docs/README-KO.md">한국어</a>
+    <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+    <a href="docs/README-TH.md"></a>
+    <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+    <a href="docs/README-ZH.md"></a>
+    <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+    <a href="docs/README-JA.md"></a>
+    <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+    <a href="docs/README-KO.md"></a>
 </p>
 
 ## Architecture

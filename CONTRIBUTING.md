@@ -28,4 +28,4 @@ We welcome Pull Requests!
 2. We recommend using a virtual environment or the provided `docker-compose`.
 3. Please make sure not to include `.env` or personal credentials in your commits.
 
-Happy Coding! 🤖✨
+Happy Coding! 
