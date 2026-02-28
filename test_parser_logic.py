@@ -16,4 +16,3 @@ for case in test_cases:
     result = parse_bank_message(text=case['text'])
     print(f"Result: {result}")
     print("-" * 20)
- 

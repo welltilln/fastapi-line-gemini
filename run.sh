@@ -22,4 +22,3 @@ echo "============================================================"
 
 # Using the local venv python which is now 3.10.19
 python -m app.main
- 

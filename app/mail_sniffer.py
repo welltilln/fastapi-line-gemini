@@ -96,4 +96,3 @@ async def monitor_email():
             print(f"Mail Sniffer error: {e}")
         
         await asyncio.sleep(60)
- 
